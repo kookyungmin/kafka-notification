@@ -1,0 +1,4 @@
+rootProject.name = "kafka-notification"
+include("api")
+include("consumer")
+include("core")
