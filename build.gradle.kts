@@ -1,7 +1,10 @@
 plugins {
     java
     id("org.springframework.boot") version "3.5.8"
+    id("io.spring.dependency-management") version "1.1.7"
 }
+
+ext["springCloudVersion"] = "2025.0.0"
 
 allprojects {
     group = "net.happykoo"
@@ -33,8 +36,12 @@ subprojects {
         testAnnotationProcessor("org.projectlombok:lombok")
         testImplementation("org.springframework.boot:spring-boot-starter-test")
         testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-//        testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
-//        testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+        }
     }
 
     tasks.getByName<Test>("test") {

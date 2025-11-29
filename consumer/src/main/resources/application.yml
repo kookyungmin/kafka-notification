@@ -1,0 +1,7 @@
+spring:
+  application:
+    name:
+      kafka-notification-consumer
+  profiles:
+    active: local
+    include: event
