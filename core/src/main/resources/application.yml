@@ -1,0 +1,14 @@
+spring:
+  application:
+    name:
+      kafka-notification-core
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: noti
+      username: local
+      password: local
+
+
+

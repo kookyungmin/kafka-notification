@@ -16,7 +16,7 @@ Kafka를 활용한 SNS 알림센터 서비스
 - [springboot] 3.5.8
 - [docker] 20.10.12
 - [kafka]
-- [redis] 7.2.5
+- [redis]
 - [mongodb] 6.0.16
 
 
