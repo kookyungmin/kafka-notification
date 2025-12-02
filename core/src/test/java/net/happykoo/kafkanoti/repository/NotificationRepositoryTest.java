@@ -31,6 +31,7 @@ class NotificationRepositoryTest {
         NotificationType.LIKE,
         LocalDateTime.now(),
         LocalDateTime.now(),
+        LocalDateTime.now(),
         LocalDateTime.now().plusDays(90));
   }
 

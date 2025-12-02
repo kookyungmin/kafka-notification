@@ -5,3 +5,11 @@ spring:
   profiles:
     active: local
     include: event
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: noti
+      username: local
+      password: local
+      authentication-database: admin

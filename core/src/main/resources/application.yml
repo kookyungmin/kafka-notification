@@ -9,6 +9,8 @@ spring:
       database: noti
       username: local
       password: local
+      authentication-database: admin
+
 
 
 
