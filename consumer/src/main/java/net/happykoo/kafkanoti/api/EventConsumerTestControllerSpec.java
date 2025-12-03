@@ -6,6 +6,7 @@ import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import net.happykoo.kafkanoti.event.CommentEvent;
+import net.happykoo.kafkanoti.event.FollowEvent;
 import net.happykoo.kafkanoti.event.LikeEvent;
 import org.springframework.http.MediaType;
 
@@ -54,6 +55,29 @@ public interface EventConsumerTestControllerSpec {
         "type": "ADD",
         "postId": 1,
         "userId": 2,
+        "createdAt": "2025-12-03T13:55:00.511Z"
+      }
+      """;
+
+  @Operation(
+      requestBody = @RequestBody(
+          content = {
+              @Content(
+                  mediaType = MediaType.APPLICATION_JSON_VALUE,
+                  examples = {
+                      @ExampleObject(name = "Follow 이벤트", value = FOLLOW_EVENT_PAYLOAD)
+                  }
+              )
+          }
+      )
+  )
+  void follow(FollowEvent event);
+
+  String FOLLOW_EVENT_PAYLOAD = """
+      {
+        "type": "FOLLOW",
+        "userId": 1,
+        "targetUserId": 2,
         "createdAt": "2025-12-03T13:55:00.511Z"
       }
       """;
