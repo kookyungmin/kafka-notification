@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import net.happykoo.kafkanoti.domain.notification.Notification;
 import net.happykoo.kafkanoti.domain.notification.NotificationType;
 import net.happykoo.kafkanoti.repository.NotificationRepository;
+import net.happykoo.kafkanoti.service.dto.UserNotificationByPivotResult;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
@@ -18,14 +19,21 @@ public class NotificationService {
 
   private final NotificationRepository notificationRepository;
 
-  public Slice<Notification> findUserNotificationsByPivot(Long userId, LocalDateTime occurredAt) {
+  public UserNotificationByPivotResult findUserNotificationsByPivot(Long userId,
+      LocalDateTime occurredAt) {
+    Slice<Notification> result;
     if (occurredAt == null) {
-      return notificationRepository.findAllByUserIdOrderByOccurredAtDesc(userId,
+      result = notificationRepository.findAllByUserIdOrderByOccurredAtDesc(userId,
           Pageable.ofSize(PAGE_SIZE));
     } else {
-      return notificationRepository.findAllByUserIdAndOccurredAtLessThanOrderByOccurredAtDesc(
+      result = notificationRepository.findAllByUserIdAndOccurredAtLessThanOrderByOccurredAtDesc(
           userId, occurredAt, Pageable.ofSize(PAGE_SIZE));
     }
+
+    return new UserNotificationByPivotResult(
+        result.toList(),
+        result.hasNext()
+    );
   }
 
   public void save(Notification notification) {

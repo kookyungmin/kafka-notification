@@ -1,9 +1,11 @@
 package net.happykoo.kafkanoti.domain.notification;
 
 import java.time.LocalDateTime;
+import lombok.Getter;
 import org.springframework.data.annotation.TypeAlias;
 
 @TypeAlias("FollowNotification")
+@Getter
 public class FollowNotification extends Notification {
 
   private final Long targetUserId;
