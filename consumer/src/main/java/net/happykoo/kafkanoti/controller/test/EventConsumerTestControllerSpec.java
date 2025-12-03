@@ -1,4 +1,4 @@
-package net.happykoo.kafkanoti.api;
+package net.happykoo.kafkanoti.controller.test;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

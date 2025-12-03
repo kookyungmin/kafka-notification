@@ -1,4 +1,4 @@
-package net.happykoo.kafkanoti.api;
+package net.happykoo.kafkanoti.controller.test;
 
 import java.util.function.Consumer;
 import lombok.RequiredArgsConstructor;
