@@ -6,6 +6,7 @@ import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import net.happykoo.kafkanoti.event.CommentEvent;
+import net.happykoo.kafkanoti.event.LikeEvent;
 import org.springframework.http.MediaType;
 
 @Tag(name = "Event Consumer 호출 테스트 API")
@@ -31,6 +32,29 @@ public interface EventConsumerTestControllerSpec {
         "postId": 1,
         "userId": 2,
         "commentId": 1
+      }
+      """;
+
+  @Operation(
+      requestBody = @RequestBody(
+          content = {
+              @Content(
+                  mediaType = MediaType.APPLICATION_JSON_VALUE,
+                  examples = {
+                      @ExampleObject(name = "게시물 좋아요 이벤트", value = LIKE_EVENT_PAYLOAD)
+                  }
+              )
+          }
+      )
+  )
+  void like(LikeEvent event);
+
+  String LIKE_EVENT_PAYLOAD = """
+      {
+        "type": "ADD",
+        "postId": 1,
+        "userId": 2,
+        "createdAt": "2025-12-03T13:55:00.511Z"
       }
       """;
 

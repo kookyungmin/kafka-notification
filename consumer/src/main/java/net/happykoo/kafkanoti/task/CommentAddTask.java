@@ -27,7 +27,7 @@ public class CommentAddTask {
     Comment comment = commentClient.getComment(event.getCommentId())
         .orElseThrow(IllegalArgumentException::new);
 
-    if (event.getUserId() == comment.getWriterId()) {
+    if (event.getUserId() == post.getWriterId()) {
       return;
     }
 

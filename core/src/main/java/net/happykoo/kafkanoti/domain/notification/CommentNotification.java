@@ -22,9 +22,9 @@ public class CommentNotification extends Notification {
       String comment,
       LocalDateTime occurredAt,
       LocalDateTime createdAt,
-      LocalDateTime updatedAt,
+      LocalDateTime lastUpdatedAt,
       LocalDateTime deletedAt) {
-    super(id, userId, NotificationType.COMMENT, occurredAt, createdAt, updatedAt, deletedAt);
+    super(id, userId, NotificationType.COMMENT, occurredAt, createdAt, lastUpdatedAt, deletedAt);
     this.postId = postId;
     this.writerId = writerId;
     this.commentId = commentId;

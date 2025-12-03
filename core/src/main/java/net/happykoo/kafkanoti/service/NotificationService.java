@@ -21,6 +21,10 @@ public class NotificationService {
     return notificationRepository.findByTypeAndCommentId(type, commentId);
   }
 
+  public Optional<Notification> findByTypeAndPostId(NotificationType type, Long postId) {
+    return notificationRepository.findByTypeAndPostId(type, postId);
+  }
+
   public void deleteById(String id) {
     notificationRepository.deleteById(id);
 
