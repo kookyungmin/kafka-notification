@@ -1,5 +1,9 @@
 test-container:
   mongodb:
     image: mongo:5.0
-    port: 27017
+    port: 27018
     dbname: noti
+  redis:
+    image:
+      redis:7.4.0
+    port: 16377

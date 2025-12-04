@@ -1,0 +1,11 @@
+spring:
+  application:
+    name:
+      kafka-notification-api
+  profiles:
+    active: local
+    include: redis
+  data:
+    redis:
+      host: localhost
+      port: 16379

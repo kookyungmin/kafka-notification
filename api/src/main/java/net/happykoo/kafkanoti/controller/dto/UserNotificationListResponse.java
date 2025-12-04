@@ -23,7 +23,7 @@ public record UserNotificationListResponse(
         .toList();
 
     LocalDateTime pivot = (result.hasNext() && !notifications.isEmpty())
-        ? notifications.getLast().getOccurredAt() : null;
+        ? notifications.get(notifications.size() - 1).getOccurredAt() : null;
 
     return new UserNotificationListResponse(
         notifications,

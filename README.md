@@ -12,12 +12,12 @@ Kafka를 활용한 SNS 알림센터 서비스
 
 ### System Requirements
 
-- [java] 21
+- [java] 17
 - [springboot] 3.5.8
 - [docker] 29.1.1
 - [kafka] 7.3.10
 - [zookeeper] 7.3.10
-- [redis]
+- [redis] 7.2.5
 - [mongodb] 6.0.16
 
 ### Kafka 명령
