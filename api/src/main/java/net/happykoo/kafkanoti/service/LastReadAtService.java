@@ -15,4 +15,8 @@ public class LastReadAtService {
     return notificationReadRepository.saveLastReadAt(userId);
   }
 
+  public LocalDateTime findLastReadAt(Long userId) {
+    return notificationReadRepository.findLastReadAt(userId);
+  }
+
 }

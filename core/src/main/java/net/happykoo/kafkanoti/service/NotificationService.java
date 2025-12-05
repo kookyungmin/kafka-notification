@@ -56,4 +56,10 @@ public class NotificationService {
   public void deleteById(String id) {
     notificationRepository.deleteById(id);
   }
+
+  public LocalDateTime getLatestUpdatedAt(Long userId) {
+    return notificationRepository.findFirstByUserIdOrderByLastUpdatedAtDesc(userId)
+        .map(Notification::getLastUpdatedAt)
+        .orElse(null);
+  }
 }

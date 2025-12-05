@@ -1,5 +1,6 @@
 package net.happykoo.kafkanoti.repository;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
@@ -23,6 +24,14 @@ public class NotificationReadRepository {
     redisTemplate.expire(key, 90, TimeUnit.DAYS);
 
     return now;
+  }
+
+  public LocalDateTime findLastReadAt(Long userId) {
+    String value = redisTemplate.opsForValue().get(getLastReadAtKey(userId));
+    if (value == null) {
+      return null;
+    }
+    return LocalDateTime.ofInstant(Instant.ofEpochMilli(Long.parseLong(value)), ZoneId.systemDefault());
   }
 
   private String getLastReadAtKey(Long userId) {

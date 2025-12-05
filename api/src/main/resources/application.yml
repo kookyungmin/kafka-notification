@@ -9,3 +9,10 @@ spring:
     redis:
       host: localhost
       port: 16379
+    mongodb:
+      host: localhost
+      port: 27017
+      database: noti
+      username: local
+      password: local
+      authentication-database: admin
